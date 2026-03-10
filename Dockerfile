@@ -1,3 +1,3 @@
-FROM openjdk:22
-COPY target/app.jar app.jar
+FROM openjdk:17-jdk-slim
+COPY target/Healthcare-0.0.1-SNAPSHOT.jar app.jar
 ENTRYPOINT ["java","-jar","/app.jar"]
