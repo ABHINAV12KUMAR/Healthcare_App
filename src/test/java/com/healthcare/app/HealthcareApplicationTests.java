@@ -12,14 +12,4 @@ class HealthcareApplicationTests {
 	void contextLoads() {
 	}
 
-	@Test
-	void searchBypatientId() {
-		Appointment employee = AppointmentRepository.searchByEmail("sam@gmail.com");
-
-		System.out.println(Appointment.getId());
-		System.out.println(Appointment.getName());
-		System.out.println(Appointment.getEmailId());
-		System.out.println(Appointment.getMobile());
-	}
-
 }
