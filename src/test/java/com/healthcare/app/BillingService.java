@@ -1,6 +1,7 @@
 package com.healthcare.app;
 // Bhaii BillingService Kyu Add kiya 
 public class BillingService {
+    // Ye ServiceClass tu Hamlog likha b nhi hai 
 
     public double calculateBill(double consultationFee, double medicineCost) {
         return consultationFee + medicineCost;
