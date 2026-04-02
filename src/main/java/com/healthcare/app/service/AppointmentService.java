@@ -18,30 +18,30 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 @Transactional
 public class AppointmentService {
-	   private final AppointmentRepository appointmentRepo;
-	   private final SlotRepository slotRepo;
-	   private final PatientRepository patientRepo;
-	   
-	   public Appointment bookAppointment(Long slotId, Long patientId) {
+    private final AppointmentRepository appointmentRepo;
+    private final SlotRepository slotRepo;
+    private final PatientRepository patientRepo;
 
-		    AvailabilitySlot slot = slotRepo.findById(slotId)
-		            .orElseThrow(() -> new RuntimeException("Slot not found"));
+    public Appointment bookAppointment(Long slotId, Long patientId) {
 
-		    if (slot.getStatus() != SlotStatus.ACTIVE) {
-		        throw new RuntimeException("Slot already booked");
-		    }
+        AvailabilitySlot slot = slotRepo.findById(slotId)
+                .orElseThrow(() -> new RuntimeException("Slot not found"));
 
-		    Patient patient = patientRepo.findById(patientId)
-		            .orElseThrow(() -> new RuntimeException("Patient not found"));
+        if (slot.getStatus() != SlotStatus.ACTIVE) {
+            throw new RuntimeException("Slot already booked");
+        }
 
-		    slot.setStatus(SlotStatus.BOOKED);
+        Patient patient = patientRepo.findById(patientId)
+                .orElseThrow(() -> new RuntimeException("Patient not found"));
 
-		    Appointment appointment = new Appointment();
-		    appointment.setDoctor(slot.getDoctor());
-		    appointment.setPatient(patient);
-		    appointment.setSlot(slot);
-		    appointment.setStatus(AppointmentStatus.CONFIRMED);
+        slot.setStatus(SlotStatus.BOOKED);
 
-		    return appointmentRepo.save(appointment);
-		}
+        Appointment appointment = new Appointment();
+        appointment.setDoctor(slot.getDoctor());
+        appointment.setPatient(patient);
+        appointment.setSlot(slot);
+        appointment.setStatus(AppointmentStatus.CONFIRMED);
+
+        return appointmentRepo.save(appointment);
+    }
 }
