@@ -2,6 +2,8 @@ package com.healthcare.app.controller;
 
 import java.util.List;
 
+import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -17,6 +19,8 @@ import lombok.RequiredArgsConstructor;
 @RestController
 @RequestMapping("/api/doctors")
 @RequiredArgsConstructor
+//@AllArgsConstructor
+//@Slf4j
 public class DoctorController {
 	private final DoctorService doctorService;
 
