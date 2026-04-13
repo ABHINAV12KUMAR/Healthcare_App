@@ -24,7 +24,7 @@ class AppointmentServiceTest {
     @Mock
     private PatientRepository patientRepository;
     @InjectMocks
-    AppointmentService appointmentService;
+    private AppointmentService appointmentService;
     @Test
     void shouldBookAppointmentSuccessfully(){
     // Given
