@@ -18,13 +18,13 @@ import static org.junit.jupiter.api.Assertions.*;
 class AppointmentServiceTest {
 
     @Mock
-    AppointmentRepository appointmentRepository;
+    private AppointmentRepository appointmentRepository;
     @Mock
     private SlotRepository slotRepository;
     @Mock
     private PatientRepository patientRepository;
     @InjectMocks
-    AppointmentService appointmentService;
+    private AppointmentService appointmentService;
     @Test
     void shouldBookAppointmentSuccessfully(){
     // Given
